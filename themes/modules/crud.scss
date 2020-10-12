@@ -1,0 +1,82 @@
+
+.ex-crud-container {
+    height: 100%;
+    width: 100%;
+
+    > .ex-crud-header {
+        padding: 0 5px 5px 5px;
+        overflow: hidden;
+        box-sizing: border-box;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .ex-crud-wrap {
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    > .ex-crud-footer {
+        padding: 5px;
+        overflow: hidden;
+        box-sizing: border-box;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .ex-crud-pagination {
+    }
+
+    .ex-crud-operator {
+        flex: 0 0 auto;
+        margin-top: 5px;
+    }
+
+    .ex-crud-search {
+        flex: 1 1 auto;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: flex-start;
+        margin-left: 100px;
+
+        .el-form-item {
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+
+        > .ex-crud-search-button, .ex-crud-search-more {
+            margin-top: 5px;
+        }
+    }
+
+    .ex-crud-tools {
+        flex: 0;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: flex-start;
+        margin-top: 5px;
+    }
+
+    .ex-crud-search + .ex-crud-tools:not(:empty) {
+        margin-left: 10px;
+    }
+
+}
+
+.ex-crud-search-popup {
+    .ex-drawer__body {
+        padding: 10px 100px;
+    }
+}
+
+.ex-drawer.ex-crud-form-popup {
+    .ex-drawer__body {
+        padding: 10px 30px;
+    }
+}
