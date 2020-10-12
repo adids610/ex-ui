@@ -14,7 +14,7 @@
         },
         render(h) {
             // 顶部区域
-            const header = h('el-header', { class: 'ex-crud-header', props: { height: 'auto' } }, [
+            const header = h('el-header', { class: 'ex-crud-header', props: { height: 'auto' }, ref: 'header' }, [
                 // 左侧操作按钮
                 h('div', { class: 'ex-crud-operator' }, [
                     this.renderAdd(),

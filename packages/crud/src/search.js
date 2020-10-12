@@ -24,7 +24,7 @@ export default {
         initSearch(vm) {
             this.vmSearch = vm;
             this.params = vm.value || {};
-            this.$refs['header-tools'].before(this.vmSearch.$el);
+            this.$refs.header.$el.prepend(this.vmSearch.$el);
         },
         /**
          * 注销分页组件
