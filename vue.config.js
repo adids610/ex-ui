@@ -11,7 +11,7 @@ module.exports = {
             entry: 'example/main.js',
             template: 'public/index.html',
             filename: 'index.html',
-            title: 'BASE-UI DEMO',
+            title: 'EX-UI DEMO',
             chunks: ['chunk-vendors', 'chunk-common', 'index']
         }
     },
