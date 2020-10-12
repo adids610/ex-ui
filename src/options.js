@@ -56,7 +56,7 @@ export default {
             type: 'primary',
             plain: true,
             text: '修改',
-            icon: 'fa fa-pencil-square-o'
+            icon: 'fa fa-pencil'
         },
         delete: {
             type: 'primary',
