@@ -3,7 +3,7 @@ import { merge } from 'lodash';
 import DEFAULT from './options';
 
 // 消息
-import message from './prototype/message';
+import message, { Message } from './prototype/message';
 
 // 批量引入组件
 const files = require.context('../packages', true, /\.\/[^/]+\/index\.js$/);
@@ -25,3 +25,5 @@ export default {
     install,
     ...modules
 };
+
+export { Message };

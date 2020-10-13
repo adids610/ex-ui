@@ -24,7 +24,7 @@ export default {
         initSearch(vm) {
             this.vmSearch = vm;
             this.params = vm.value || {};
-            this.$refs.header.$el.prepend(this.vmSearch.$el);
+            this.$refs['heard-search'].append(this.vmSearch.$el);
         },
         /**
          * 注销分页组件

@@ -38,19 +38,24 @@
 
     .ex-crud-search {
         flex: 1 1 auto;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: flex-start;
-        align-items: flex-start;
         margin-right: 50px;
 
-        .el-form-item {
-            margin-top: 5px;
-            margin-bottom: 0;
-        }
+        .ex-crud-search__wrap {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
 
-        > .ex-crud-search-button, .ex-crud-search-more {
-            margin-top: 5px;
+            .el-form-item {
+                margin-top: 5px;
+                margin-bottom: 0;
+            }
+
+            > .ex-crud-search-button, .ex-crud-search-more {
+                flex: 0;
+                margin-top: 5px;
+            }
         }
     }
 

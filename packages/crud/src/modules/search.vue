@@ -1,5 +1,5 @@
 <template>
-    <div class="ex-crud-search">
+    <div class="ex-crud-search__wrap">
         <template v-if="$slots.default">
             <el-form :model="value" inline class="ex-crud-search-form">
                 <slot/>

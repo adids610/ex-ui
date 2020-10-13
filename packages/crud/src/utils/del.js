@@ -171,7 +171,7 @@ export const runDelete = (vm, checked) => {
     };
 
     // 获得删除生成函数，调用获得迭代器
-    const gen = genDelete(vm, checked)(checked);
+    const gen = genDelete(vm)(checked);
 
     // 执行迭代
     run(gen.next());
