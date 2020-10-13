@@ -18,7 +18,8 @@
         components: {},
         props: {
             columns: { type: Array },
-            enums: { type: Object, default: null }
+            enums: { type: Object, default: null },
+            border: { type: Boolean, default: true }
         },
         data() {
             return {};
@@ -94,7 +95,7 @@
 
             return h('el-table', {
                 ref: 'eltable', class: this.className,
-                props: this.attrs,
+                props: { ...this.attrs, border: this.border },
                 on: this.listeners
             }, createCols(columns));
         },
