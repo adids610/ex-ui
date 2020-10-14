@@ -134,7 +134,7 @@ const toPromise = (fn, vm, checked) => {
     }
     // 调用本地渲染数据方法
     else if (fn === 'render') {
-        return refresh(vm, checked);
+        return render(vm, checked);
     }
     // 调用内部删除完成
     else if (fn === 'complete') {

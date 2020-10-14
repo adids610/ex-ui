@@ -26,6 +26,7 @@
 <script>
     import { propsDefault, mixinOption, optionValue } from '../../../../src/options';
     import ExDrawer from '../../../drawer/src';
+    import { cloneDeep } from 'lodash';
 
     export default {
         name: 'ExCrudForm',
@@ -142,7 +143,7 @@
                 }
 
                 try {
-                    typeof this.SUBMIT_FORM === 'function' && await this.SUBMIT_FORM(this.model);
+                    typeof this.SUBMIT_FORM === 'function' && await this.SUBMIT_FORM(cloneDeep(this.model));
                     this.popupVisible = false;
                 }
                 catch (e) {
