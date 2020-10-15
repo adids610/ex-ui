@@ -143,6 +143,7 @@
                 }
 
                 try {
+                    this.submiting = true;
                     typeof this.SUBMIT_FORM === 'function' && await this.SUBMIT_FORM(cloneDeep(this.model));
                     this.popupVisible = false;
                 }
