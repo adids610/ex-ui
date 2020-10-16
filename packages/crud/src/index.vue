@@ -37,9 +37,10 @@
             ]);
 
             // 底部区域
-            const footer = this.vmPagination ? h('el-footer', { class: 'ex-crud-footer', props: { height: 'auto' } }, [
-                this.renderPagination()
-            ]) : null;
+            const footer = h('el-footer', { class: 'ex-crud-footer', props: { height: 'auto' } }, [
+                h('div', { class: 'ex-crud-footer__wrap' }, this.$slots.footer),
+                this.vmPagination ? this.renderPagination() : null
+            ]);
 
             return h('el-container', {
                 class: 'ex-crud-container', directives: [
