@@ -1,7 +1,7 @@
 <script>
     import { cloneDeep } from 'lodash';
     import dayjs from 'dayjs';
-    import { removeResizeListener, addResizeListener } from '@/utils/resize-event';
+    import { removeResizeListener, addResizeListener } from '../../../src/utils/resize-event';
 
     const METHODS = {};
     [
