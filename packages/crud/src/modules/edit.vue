@@ -11,7 +11,7 @@
             plain: { type: Boolean, default: propsDefault('crud.edit.plain', true) },
             text: { type: String, default: propsDefault('crud.edit.text', '修改') },
             icon: { type: String, default: propsDefault('crud.edit.icon', '') },
-            disabled: { type: Boolean, default: false }
+            disabled: { type: [Function, Boolean], default: false }
         },
         inject: {
             INIT_EDIT: {

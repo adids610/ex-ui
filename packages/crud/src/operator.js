@@ -24,6 +24,26 @@ export default {
             vmDelete: null
         };
     },
+    computed: {
+        editDisabled() {
+            if (!this.vmEdit) {
+                return false;
+            }
+            if (!this.rowSelected) {
+                return true;
+            }
+            return typeof this.vmEdit.disabled === 'function' ? this.vmEdit.disabled(this.rowSelected) : this.vmEdit.disabled;
+        },
+        deleteDisabled() {
+            if (!this.vmDelete) {
+                return false;
+            }
+            if (!this.rowSelected && this.rowChecked.length === 0) {
+                return true;
+            }
+            return typeof this.vmDelete.disabled === 'function' ? this.vmDelete.disabled(this.rowSelected, this.rowChecked) : this.vmDelete.disabled;
+        }
+    },
     methods: {
         /**
          * 注册新增组件
@@ -99,7 +119,7 @@ export default {
                     plain: this.vmEdit.plain,
                     type: this.vmEdit.type,
                     icon: this.vmEdit.icon,
-                    disabled: this.vmEdit.disabled || !this.rowSelected
+                    disabled: this.editDisabled
                 },
                 on: {
                     click: () => {
@@ -121,7 +141,7 @@ export default {
                     plain: this.vmDelete.plain,
                     type: this.vmDelete.type,
                     icon: this.vmDelete.icon,
-                    disabled: this.vmDelete.disabled || (!this.rowSelected && this.rowChecked.length === 0)
+                    disabled: this.deleteDisabled
                 },
                 on: {
                     click: () => {

@@ -11,7 +11,7 @@
             plain: { type: Boolean, default: propsDefault('crud.delete.plain', true) },
             text: { type: String, default: propsDefault('crud.delete.text', '删除') },
             icon: { type: String, default: propsDefault('crud.delete.icon', '') },
-            disabled: { type: Boolean, default: false }
+            disabled: { type: [Function, Boolean], default: false }
         },
         inheritAttrs: false,
         inject: {
