@@ -1,6 +1,7 @@
 <script>
     import { cloneDeep } from 'lodash';
     import dayjs from 'dayjs';
+    import { removeResizeListener, addResizeListener } from '@/utils/resize-event';
 
     const METHODS = {};
     [
@@ -178,6 +179,12 @@
                 }
                 return this.$createElement('el-table-column', { props, scopedSlots });
             }
+        },
+        mounted() {
+            addResizeListener(this.$el, this.doLayout);
+        },
+        beforeDestroy() {
+            removeResizeListener(this.$el, this.doLayout);
         }
     }
 </script>
