@@ -1,5 +1,5 @@
 <template>
-    <el-drawer ref="drawer" :visible.sync="vis"
+    <el-drawer ref="drawer" :visible.sync="vis" :wrapper-closable="closeOnClickModal"
                :custom-class="'ex-drawer ' + ($attrs.customClass || $attrs['custom-class'] || '')"
                v-bind="$attrs" v-on="$listeners">
         <span slot="title">
@@ -23,7 +23,8 @@
         name: 'ExDrawer',
         inheritAttrs: false,
         props: {
-            visible: { type: Boolean, default: false }
+            visible: { type: Boolean, default: false },
+            closeOnClickModal: { type: Boolean, default: true }
         },
         data() {
             return {
@@ -48,6 +49,10 @@
             // removeFocus() {
             //     document.activeElement.blur();
             // }
+            // 公开el-drawer方法
+            closeDrawer() {
+                this.$refs.drawer.closeDrawer();
+            }
         }
     }
 </script>

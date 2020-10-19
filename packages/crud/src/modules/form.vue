@@ -98,7 +98,7 @@
                     return { type: 'ex-drawer', direction: 'btt' };
                 }
                 else {
-                    return { type: 'el-dialog', direction: '' };
+                    return { type: 'tk-dialog', direction: '' };
                 }
             },
             title() {

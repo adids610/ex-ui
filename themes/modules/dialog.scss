@@ -1,0 +1,25 @@
+.ex-dialog__wrap {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.ex-dialog {
+    margin-bottom: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    .el-dialog__header,
+    .el-dialog__footer {
+        flex: 0;
+    }
+
+
+    .el-dialog__body {
+        overflow: auto;
+        flex: 1;
+    }
+}
