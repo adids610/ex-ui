@@ -16,7 +16,7 @@
 
 <script>
     export default {
-        name: 'TkDialog',
+        name: 'ExDialog',
         inheritAttrs: false,
         props: {
             visible: { type: Boolean, default: false },
