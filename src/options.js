@@ -66,7 +66,7 @@ export default {
         },
         form: {
             position: 'center',
-            size: 'auto',
+            size: '50%',
             labelWidth: '90px',
             labelPosition: 'right',
             labelSuffix: '',
