@@ -53,7 +53,7 @@
                         if (!this.$refs.dialog && this.$refs.dialog.$el) {
                             return;
                         }
-                        const dialog = this.$refs.dialog.$el.querySelector('.tk-dialog');
+                        const dialog = this.$refs.dialog.$el.querySelector('.ex-dialog');
                         dialog.style.maxHeight = this.mh;
                     });
                 }

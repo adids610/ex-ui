@@ -1,7 +1,7 @@
 import ExDialog from './src/index';
 
-TkDialog.install = function(Vue) {
-    Vue.component(TkDialog.name, TkDialog);
+ExDialog.install = function(Vue) {
+    Vue.component(ExDialog.name, ExDialog);
 };
 
-export default TkDialog;
+export default ExDialog;
