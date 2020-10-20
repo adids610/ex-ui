@@ -1,6 +1,6 @@
 <template>
     <component :is="cmp.type" :direction="cmp.direction" :visible.sync="popupVisible"
-               :size="size" :width="size" :title="title" append-to-body :show-close="!submiting"
+               :title="title" append-to-body :show-close="!submiting"
                :close-on-click-modal="false" :close-on-press-escape="false" custom-class="ex-crud-form-popup"
                v-bind="$attrs">
 
@@ -61,9 +61,6 @@
             },
             position: {
                 type: String, default: propsDefault('crud.form.position', '')
-            },
-            size: {
-                type: String, default: propsDefault('crud.form.size', '')
             },
             labelWidth: {
                 type: String, default: propsDefault('crud.form.labelWidth', '90px')

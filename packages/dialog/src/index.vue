@@ -1,6 +1,6 @@
 <template>
     <el-dialog ref="dialog" :visible.sync="vis" :fullscreen="fullscreen" :top="top" class="ex-dialog__wrap"
-               :custom-class="'ex-dialog ' + ($attrs.customClass || $attrs['custom-class'] || '')"
+               :width="width" :custom-class="'ex-dialog ' + ($attrs.customClass || $attrs['custom-class'] || '')"
                v-bind="$attrs" v-on="$listeners">
         <template slot="title">
             <slot name="title">{{ $attrs.title }}</slot>
@@ -15,6 +15,8 @@
 </template>
 
 <script>
+    import { propsDefault } from '../../../src/options';
+
     export default {
         name: 'ExDialog',
         inheritAttrs: false,
@@ -22,7 +24,8 @@
             visible: { type: Boolean, default: false },
             top: { type: String, default: '15vh' },
             fullscreen: { type: Boolean, default: false },
-            maxHeight: { type: String, default: '80%' }
+            maxHeight: { type: String, default: '80%' },
+            width: { type: String, default: propsDefault('dialog.width', '50%') }
         },
         data() {
             return {

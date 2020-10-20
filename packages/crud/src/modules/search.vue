@@ -20,7 +20,7 @@
                        class="ex-crud-search-more">
                 {{ 'crud.search.more.text' | optionValue('高级筛选') }}
             </el-button>
-            <ex-drawer :visible.sync="popupVisible" :title="'高级筛选'" size="auto" direction="rtl" append-to-body
+            <ex-drawer :visible.sync="popupVisible" :title="'高级筛选'" :size="popSize" direction="rtl" append-to-body
                        custom-class="ex-crud-search-popup">
                 <el-form class:="ex-crud-search-pop-form" :label-width="labelWidth" :model="value">
                     <slot name="more"/>
@@ -79,7 +79,7 @@
                 }
             },
             popSize: {
-                type: String, default: propsDefault('crud.search.popSize', 'auto')
+                type: String, default: propsDefault('crud.search.popSize', '')
             },
             labelWidth: {
                 type: String, default: propsDefault('crud.search.labelWidth', '90px')

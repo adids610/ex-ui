@@ -1,5 +1,5 @@
 <template>
-    <el-drawer ref="drawer" :visible.sync="vis" :wrapper-closable="closeOnClickModal"
+    <el-drawer ref="drawer" :visible.sync="vis" :wrapper-closable="closeOnClickModal" :size="size"
                :custom-class="'ex-drawer ' + ($attrs.customClass || $attrs['custom-class'] || '')"
                v-bind="$attrs" v-on="$listeners">
         <span slot="title">
@@ -19,12 +19,15 @@
 </template>
 
 <script>
+    import { propsDefault } from '../../../src/options';
+
     export default {
         name: 'ExDrawer',
         inheritAttrs: false,
         props: {
             visible: { type: Boolean, default: false },
-            closeOnClickModal: { type: Boolean, default: true }
+            closeOnClickModal: { type: Boolean, default: true },
+            size: { type: [Number, String], default: propsDefault('drawer.size', '30%') }
         },
         data() {
             return {

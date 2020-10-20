@@ -28,7 +28,7 @@
 
             <ex-crud-pagination/>
 
-            <ex-crud-form v-if="form" :model="form" size="400px">
+            <ex-crud-form v-if="form" :model="form" width="400px">
                 <el-form-item label="名称" prop="name" :rules="{required: true, message: '必填项'}">
                     <el-input v-model="form.name"/>
                 </el-form-item>

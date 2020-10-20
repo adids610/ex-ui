@@ -9,7 +9,12 @@ export default {
             option: { showClose: true }
         }
     },
-    drawer: {},
+    dialog: {
+        width: '50%'
+    },
+    drawer: {
+        size: '30%'
+    },
     talbe: {},
     crud: {
         loaderFormat: null, // 查询数据结构统一转换，(res)=> {retrun {total: res.total, rows: res.rows};}
@@ -21,7 +26,7 @@ export default {
         },
         table: {},
         search: {
-            popSize: 'auto',
+            popSize: '',
             labelWidth: '90px',
             button: {
                 type: 'primary',
@@ -66,7 +71,6 @@ export default {
         },
         form: {
             position: 'center',
-            size: '50%',
             labelWidth: '90px',
             labelPosition: 'right',
             labelSuffix: '',
