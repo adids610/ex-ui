@@ -11,6 +11,17 @@ class Cell {
     }
 }
 
+/**
+ * 获得列对齐方式
+ * @param {Object} col 列定义
+ * @param {Boolean} header 是否为表头
+ * @return {string}
+ */
+const getColAlign = (col, header = false) => {
+    const v = (header ? (col.headerAlign || col.align) : col.align) || 'left';
+    return v.replace('is-', '');
+};
+
 /** 计算标头excel数据
  *  @param {Array} originCols 原始列数据
  *  @param {Array} cols 数据列
@@ -24,7 +35,7 @@ const getHeaderRows = (originCols, cols) => {
     const findCol = (cls, list, deepth) => {
         cls.forEach((c) => {
             const cinfo = {
-                label: c.label, children: [], colSpan: 0, lv: deepth, align: c.headerAlign || c.align || 'left'
+                label: c.label, children: [], colSpan: 0, lv: deepth, align: getColAlign(c, true)
             };
             // 递归子列
             if (c.children) {
@@ -160,7 +171,7 @@ export const exportExcel = async (vm, fileName, rows) => {
         // 宽度
         sheet.column(i + 1).width((c.width || c.minWidth || 200) / 4);
         // 高度
-        sheet.column(i + 1).style({ horizontalAlignment: c.align || 'left' });
+        sheet.column(i + 1).style({ horizontalAlignment: getColAlign(c) });
     });
 
     // 数据写入
