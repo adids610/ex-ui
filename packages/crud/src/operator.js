@@ -1,7 +1,7 @@
 /**
  * 新增删除修改
  */
-import { runDelete } from './utils/del';
+import { cloneDeep } from 'lodash';
 
 export default {
     template: '',
@@ -170,7 +170,7 @@ export default {
          * 单击删除按钮
          * @param {Object} row 指定删除的数据
          */
-        del(row = null) {
+        async del(row = null) {
             let checked = [];
             if (row) {
                 checked = [row];
@@ -185,8 +185,63 @@ export default {
                 return;
             }
 
-            // 执行删除迭代
-            runDelete(this, checked);
+            let result = false;
+
+            if (this.deleteRewrite) {
+                try {
+                    result = await this.delete(cloneDeep(checked));
+                }
+                catch (e) {
+                    return;
+                }
+            }
+            else {
+                // 二次确认
+                try {
+                    await this.$confirm(`此操作将删除${checked.length === 1 ? '此' : checked.length}行数据, 是否继续`, '提示', {
+                        type: 'danger'
+                    })
+                }
+                catch (e) {
+                    return;
+                }
+
+                try {
+                    this.loading = true;
+                    result = await this.delete(cloneDeep(checked));
+                    this.$msg({ type: 'success', message: '删除成功。' });
+                }
+                catch (e) {
+                    console.error(e);
+                    this.$msg({ type: 'error', message: `删除失败：${typeof e === 'object' ? e.message : e}` });
+                    return;
+                }
+                finally {
+                    this.loading = false;
+                }
+            }
+
+            // 返回false跳出，自行控制数据更新
+            if (result === false) {
+                return;
+            }
+
+            // 返回true调用刷新方法
+            if (result === true) {
+                this.refresh();
+            }
+            // 默认移除选中行，本地更新数据
+            else {
+                checked.forEach((c) => {
+                    const index = this.rows.indexOf(c);
+                    index > -1 && this.rows.splice(index, 1);
+                });
+                // 本页被全部删除，退回上一页
+                if (this.rows.length === 0) {
+                    this.currentPageChange(Math.max(1, this.currentPage - 1));
+                }
+            }
+            this.$emit('deleted');
         }
     }
 };

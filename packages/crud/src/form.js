@@ -38,14 +38,14 @@ export default {
          */
         async submitForm(model) {
             const result = await this.submit(model, this.action);
-            this.$msg({ type: 'success', message: '保存成功。' });
 
             // 返回false跳出，自行控制数据更新
             if (result === false) {
-
+                return;
             }
+            this.$msg({ type: 'success', message: '保存成功。' });
             // 返回true调用刷新方法
-            else if (result === true) {
+            if (result === true) {
                 this.refresh();
             }
             // 本地更新数据

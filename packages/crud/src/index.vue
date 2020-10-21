@@ -69,6 +69,7 @@
             submit: { type: Function },
             initModel: { type: Function },
             delete: { type: Function },
+            deleteRewrite: { type: Boolean, default: false },
             export: { type: Boolean, default: true }
         },
         data() {
