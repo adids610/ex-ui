@@ -2,6 +2,7 @@
     import { cloneDeep } from 'lodash';
     import dayjs from 'dayjs';
     import { removeResizeListener, addResizeListener } from '../../../src/utils/resize-event';
+    import { exportExcel } from '../../../src/utils/excel/el-table';
 
     const METHODS = {};
     [
@@ -178,6 +179,12 @@
                     };
                 }
                 return this.$createElement('el-table-column', { props, scopedSlots });
+            },
+            exportExcel(fileName, data) {
+                if (!this.$refs.eltable) {
+                    return;
+                }
+                exportExcel(this.$refs.eltable, fileName, data);
             }
         },
         mounted() {

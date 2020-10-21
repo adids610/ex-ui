@@ -26,7 +26,18 @@
 
                 // 导出和列显示设置
                 h('div', { class: 'ex-crud-tools', ref: 'header-tools' }, [
-                    // h('el-button', { props: { icon: '' } }, '导出'),
+                    this.export ? h('el-button', {
+                        props: {
+                            icon: optionValue('crud.export.icon', 'fa fa-download'),
+                            plain: optionValue('crud.export.plain', true),
+                            type: optionValue('crud.export.type', 'primary')
+                        },
+                        on: {
+                            click: () => {
+                                this.exportExcel();
+                            }
+                        }
+                    }, optionValue('crud.export.text', '导出')) : null,
                     this.$slots.tools
                 ])
             ]);
@@ -57,7 +68,8 @@
             loader: { type: Function, required: true },
             submit: { type: Function },
             initModel: { type: Function },
-            delete: { type: Function }
+            delete: { type: Function },
+            export: { type: Boolean, default: true }
         },
         data() {
             return {
@@ -102,6 +114,12 @@
              */
             refresh() {
                 this.loadData(this.currentPage, this.pageSize);
+            },
+            /*
+             * 导出excel
+             */
+            exportExcel() {
+                this.vmList && this.vmList.exportExcel(this.name);
             }
         }
     };

@@ -38,6 +38,9 @@
         methods: {
             getRows() {
                 return this.rows;
+            },
+            exportExcel() {
+
             }
         },
         beforeMount() {

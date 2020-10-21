@@ -1,49 +1,50 @@
 {
-  "name": "ex-ui",
-  "version": "1.0.16",
-  "private": true,
-  "main": "src/index.js",
-  "files": [
-    "themes",
-    "src",
-    "dist",
-    "packages"
-  ],
-  "scripts": {
-    "dev": "vue-cli-service serve",
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "dayjs": "^1.8.36",
-    "element-ui": "^2.13.2",
-    "font-awesome": "^4.7.0",
-    "lodash": "^4.17.20",
-    "normalize.css": "^8.0.1",
-    "resize-observer-polyfill": "^1.5.1",
-    "vue": "^2.6.12"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.6",
-    "@vue/cli-plugin-eslint": "^4.5.6",
-    "@vue/cli-plugin-router": "^4.5.6",
-    "@vue/cli-plugin-unit-jest": "^4.5.6",
-    "@vue/cli-plugin-vuex": "^4.5.6",
-    "@vue/cli-service": "^4.5.6",
-    "@vue/eslint-config-standard": "^5.1.2",
-    "@vue/test-utils": "^1.1.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.9.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "eslint-plugin-vue": "^6.2.2",
-    "sass": "^1.26.11",
-    "sass-loader": "^10.0.2",
-    "vue-template-compiler": "^2.6.12"
-  }
+    "name": "ex-ui",
+    "version": "1.0.17",
+    "private": true,
+    "main": "src/index.js",
+    "files": [
+        "themes",
+        "src",
+        "dist",
+        "packages"
+    ],
+    "scripts": {
+        "dev": "vue-cli-service serve",
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "test:unit": "vue-cli-service test:unit",
+        "lint": "vue-cli-service lint"
+    },
+    "dependencies": {
+        "core-js": "^3.6.5",
+        "dayjs": "^1.8.36",
+        "element-ui": "^2.13.2",
+        "font-awesome": "^4.7.0",
+        "lodash": "^4.17.20",
+        "normalize.css": "^8.0.1",
+        "resize-observer-polyfill": "^1.5.1",
+        "vue": "^2.6.12",
+        "xlsx-populate": "^1.21.0"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^4.5.6",
+        "@vue/cli-plugin-eslint": "^4.5.6",
+        "@vue/cli-plugin-router": "^4.5.6",
+        "@vue/cli-plugin-unit-jest": "^4.5.6",
+        "@vue/cli-plugin-vuex": "^4.5.6",
+        "@vue/cli-service": "^4.5.6",
+        "@vue/eslint-config-standard": "^5.1.2",
+        "@vue/test-utils": "^1.1.0",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.9.0",
+        "eslint-plugin-import": "^2.22.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1",
+        "eslint-plugin-vue": "^6.2.2",
+        "sass": "^1.26.11",
+        "sass-loader": "^10.0.2",
+        "vue-template-compiler": "^2.6.12"
+    }
 }

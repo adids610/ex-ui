@@ -68,10 +68,14 @@
                     { type: 'index', label: '序号', fixed: true },
                     { label: '名称', width: 120, prop: 'name', fixed: true },
                     { label: '性别', width: 80, prop: 'sex', type: 'enum', format: 'sex' },
-                    { label: '日期', prop: 'date', type: 'date', format: 'YYYY-MM-DD' },
-                    { label: '时间戳', prop: 'unix', type: 'unix', format: 'YYYY-MM-DD' },
-                    { label: '排序', prop: 'order' },
-                    { label: '状态', prop: 'status', type: 'bool' },
+                    {
+                        label: 'date', headerAlign: 'center', children: [
+                            { label: '日期', prop: 'date', type: 'date', format: 'YYYY-MM-DD' },
+                            { label: '时间戳', prop: 'unix', type: 'unix', format: 'YYYY-MM-DD' }
+                        ]
+                    },
+                    { label: '排序', minWidth: 50, prop: 'order' },
+                    { label: '状态', minWidth: 60, prop: 'status', type: 'bool' },
                     { label: '操作', prop: 'operator', cell: 'operator' }
                 ],
                 form: null
