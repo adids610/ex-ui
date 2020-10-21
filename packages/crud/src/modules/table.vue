@@ -46,6 +46,9 @@
              */
             renderColIndex(props, scopedSlots) {
                 props.index = (v) => {
+                    if (this.CRUD.pageSize === Infinity) {
+                        return v + 1;
+                    }
                     return this.CRUD.pageSize * (this.CRUD.currentPage - 1) + v + 1;
                 }
                 return this.$createElement('el-table-column', { props, scopedSlots });

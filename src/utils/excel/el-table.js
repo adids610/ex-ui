@@ -5,9 +5,9 @@ import XLSX from 'xlsx-populate';
  * sheet单元格类
  */
 class Cell {
-    constructor(text, align) {
+    constructor(text, style) {
         this.text = text;
-        this.align = align;
+        this.style = style || {};
     }
 }
 
@@ -70,7 +70,7 @@ const getHeaderRows = (originCols, cols) => {
             }
             for (let i = lv; i < lv + rowSpan; i++) {
                 for (let j = 0; j < colSpan; j++) {
-                    data[i].push(new Cell(label, c.align));
+                    data[i].push(new Cell(label, { horizontalAlignment: c.align }));
                 }
             }
             fillCell(children);
@@ -118,9 +118,35 @@ export const exportExcel = async (vm, fileName, rows) => {
     })
     const { data, merge } = getHeaderRows(states.originColumns, cols);
 
-    (rows || states.data).forEach((r, i) => {
+    let allRows = [];
+    // 树表处理参数
+    const treeOpt = { indents: [], indentCol: null };
+
+    if (vm.treeProps && vm.treeProps.children) {
+        treeOpt.indentCol = cols.find((c) => {
+            return c.type !== 'index';
+        });
+        // 树表数据处理
+        const proc = (rs, lv) => {
+            (rs || []).forEach((r) => {
+                allRows.push(r);
+                treeOpt.indents.push(lv);
+                proc(r[vm.treeProps.children], lv + 1);
+            });
+        };
+        proc(rows || states.data, 0);
+    }
+    else {
+        allRows = rows || states.data;
+    }
+
+    allRows.forEach((r, i) => {
         const row = cols.map((c) => {
-            return getCellValue(r, c, i);
+            const text = getCellValue(r, c, i);
+            if (c === treeOpt.indentCol) {
+                return new Cell(text, { indent: treeOpt.indents[i] || 0 });
+            }
+            return text;
         });
         data.push(row);
     });
@@ -141,10 +167,10 @@ export const exportExcel = async (vm, fileName, rows) => {
     data.forEach((r, y) => {
         r.forEach((c, x) => {
             const cell = sheet.cell(y + 1, x + 1);
-            const style = { verticalAlignment: 'center', border: 'thin', borderColor: '#000000' };
+            let style = { verticalAlignment: 'center', border: 'thin', borderColor: '#000000' };
             if (c instanceof Cell) {
                 cell.value(c.text);
-                style.horizontalAlignment = c.align;
+                style = { ...style, ...c.style };
             }
             else {
                 cell.value(c);
