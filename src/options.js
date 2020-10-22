@@ -24,7 +24,7 @@ export default {
             pageSizes: [20, 50, 100, 200],
             layout: 'total, sizes, prev, pager, next, jumper'
         },
-        export: {
+        download: {
             type: 'primary',
             plain: true,
             text: '导出',

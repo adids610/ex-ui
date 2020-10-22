@@ -26,18 +26,18 @@
 
                 // 导出和列显示设置
                 h('div', { class: 'ex-crud-tools', ref: 'header-tools' }, [
-                    this.export ? h('el-button', {
+                    this.download ? h('el-button', {
                         props: {
-                            icon: optionValue('crud.export.icon', 'fa fa-download'),
-                            plain: optionValue('crud.export.plain', true),
-                            type: optionValue('crud.export.type', 'primary')
+                            icon: optionValue('crud.download.icon', 'fa fa-download'),
+                            plain: optionValue('crud.download.plain', true),
+                            type: optionValue('crud.download.type', 'primary')
                         },
                         on: {
                             click: () => {
                                 this.exportExcel();
                             }
                         }
-                    }, optionValue('crud.export.text', '导出')) : null,
+                    }, optionValue('crud.download.text', '导出')) : null,
                     this.$slots.tools
                 ])
             ]);
@@ -70,7 +70,7 @@
             initModel: { type: Function },
             delete: { type: Function },
             deleteRewrite: { type: Boolean, default: false },
-            export: { type: Boolean, default: true }
+            download: { type: Boolean, default: true }
         },
         data() {
             return {
