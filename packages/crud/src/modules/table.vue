@@ -1,5 +1,5 @@
 <script>
-    import mixList from './list';
+    import mixList from '../../mixin/list';
     import mixTable from '../../../table/src/index';
     import { get } from 'lodash';
 
