@@ -25,6 +25,12 @@ export default {
         };
     },
     computed: {
+        addDisabled() {
+            if (!this.vmAdd) {
+                return false;
+            }
+            return typeof this.vmAdd.disabled === 'function' ? this.vmAdd.disabled(this.rowSelected) : this.vmAdd.disabled;
+        },
         editDisabled() {
             if (!this.vmEdit) {
                 return false;
@@ -98,7 +104,8 @@ export default {
                 props: {
                     plain: this.vmAdd.plain,
                     type: this.vmAdd.type,
-                    icon: this.vmAdd.icon
+                    icon: this.vmAdd.icon,
+                    disabled: this.addDisabled
                 },
                 on: {
                     click: this.add

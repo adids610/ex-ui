@@ -10,7 +10,8 @@
             type: { type: String, default: propsDefault('crud.add.type', 'primary') },
             plain: { type: Boolean, default: propsDefault('crud.add.plain', false) },
             text: { type: String, default: propsDefault('crud.add.text', '添加') },
-            icon: { type: String, default: propsDefault('crud.add.icon', '') }
+            icon: { type: String, default: propsDefault('crud.add.icon', '') },
+            disabled: { type: [Function, Boolean], default: false }
         },
         inject: {
             INIT_ADD: {
