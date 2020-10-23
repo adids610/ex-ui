@@ -1,7 +1,6 @@
 <script>
     import mixList from '../../mixin/list';
     import mixTable from '../../../table/src/index';
-    import { get } from 'lodash';
 
     export default {
         name: 'ExCrudTable',
@@ -17,11 +16,11 @@
                 return {
                     ...this.$listeners,
                     'current-change': (r, o) => {
-                        typeof this.SET_ROW_SELECTED === 'function' && this.SET_ROW_SELECTED(r);
+                        this.selectedChange(r);
                         typeof this.$listeners['current-change'] === 'function' && this.$listeners['current-change'](r, o);
                     },
                     'selection-change': (s) => {
-                        typeof this.SET_ROW_CHECKED === 'function' && this.SET_ROW_CHECKED(s);
+                        this.checkedChange(s);
                         typeof this.$listeners['selection-change'] === 'function' && this.$listeners['selection-change'](s);
                     }
                 };
@@ -33,7 +32,7 @@
                 }
                 attrs.highlightCurrentRow = true;
                 attrs['highlight-current-row'] = true;
-                attrs.data = get(this.CRUD, 'rows', []);
+                attrs.data = this.rows;
                 return attrs;
             }
         },

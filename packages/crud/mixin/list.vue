@@ -30,14 +30,24 @@
         },
         data() {
             return {
-                rows: [],
                 checked: [],
                 selected: null
+            }
+        },
+        computed: {
+            rows() {
+                return this.CRUD.rows || [];
             }
         },
         methods: {
             getRows() {
                 return this.rows;
+            },
+            selectedChange(r) {
+                typeof this.SET_ROW_SELECTED === 'function' && this.SET_ROW_SELECTED(r);
+            },
+            checkedChange(s) {
+                typeof this.SET_ROW_CHECKED === 'function' && this.SET_ROW_CHECKED(s);
             },
             exportExcel() {
 
