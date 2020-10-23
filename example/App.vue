@@ -103,18 +103,19 @@
                     }, 2000);
                 });
             },
-            * deleteMethod(rows) {
-                yield async () => {
-                    try {
-                        await this.$confirm('是否删除', '确认', { type: 'danger' });
-                    }
-                    finally {
-                    }
-                };
-                yield async () => {
-                    console.info(rows);
-                };
-                yield 'render';
+            deleteMethod(rows) {
+                return rows;
+                // yield async () => {
+                //     try {
+                //         await this.$confirm('是否删除', '确认', { type: 'danger' });
+                //     }
+                //     finally {
+                //     }
+                // };
+                // yield async () => {
+                //     console.info(rows);
+                // };
+                // yield 'render';
             },
             async initModel(model, action) {
                 this.form = {

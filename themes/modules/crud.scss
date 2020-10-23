@@ -31,21 +31,27 @@
 
     .ex-crud-footer__wrap {
         margin-right: 100px;
-        flex: 1;
+        flex-shrink: 1;
+        flex-grow: 1;
+        flex-basis: auto;
     }
 
     .ex-crud-pagination {
         margin: 5px 0;
-        flex: 0;
+        flex-shrink: 0;
+        flex-grow: 0;
     }
 
     .ex-crud-operator {
-        flex: 0 0 auto;
+        flex-shrink: 0;
+        flex-grow: 0;
         margin-top: 5px;
     }
 
     .ex-crud-search {
-        flex: 1 1 auto;
+        flex-shrink: 1;
+        flex-grow: 1;
+        flex-basis: auto;
         margin-right: 50px;
 
         .ex-crud-search__wrap {
@@ -61,14 +67,16 @@
             }
 
             > .ex-crud-search-button, .ex-crud-search-more {
-                flex: 0;
+                flex-shrink: 0;
+                flex-grow: 0;
                 margin-top: 5px;
             }
         }
     }
 
     .ex-crud-tools {
-        flex: 0;
+        flex-shrink: 0;
+        flex-grow: 0;
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-start;

@@ -24,14 +24,17 @@
     }
 
     .ex-drawer__body {
-        flex: 1;
+        flex-shrink: 1;
+        flex-grow: 1;
+        flex-basis: auto;
         width: 100%;
         overflow: auto;
         padding: 10px;
     }
 
     .ex-drawer__footer {
-        flex: 0;
+        flex-shrink: 0;
+        flex-grow: 0;
         box-sizing: border-box;
         padding: 10px;
         border-top: 1px solid $--border-color-light;
