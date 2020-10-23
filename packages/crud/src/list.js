@@ -19,18 +19,6 @@ export default {
             rowSelected: null
         };
     },
-    watch: {
-        rowSelected: {
-            immediate: true, deep: true, handler(v) {
-                this.$emit('selected-change', v);
-            }
-        },
-        rowChecked: {
-            immediate: true, deep: true, handler(v) {
-                this.$emit('checked-change', v);
-            }
-        }
-    },
     methods: {
         /**
          * 注册列表组件
@@ -55,6 +43,7 @@ export default {
          */
         setRowSelected(selected) {
             this.rowSelected = selected;
+            this.$emit('selected-change', selected);
         },
         /**
          * 设置当前多选的行
@@ -62,6 +51,7 @@ export default {
          */
         setRowChecked(checked) {
             this.rowChecked = checked;
+            this.$emit('checked-change', checked);
         }
     }
 };
