@@ -172,10 +172,11 @@
                         if (cellValue == null) {
                             return '';
                         }
+                        const [trueValue, falseValue] = Array.isArray(props.format) ? props.format : ['是', '否'];
                         if (typeof cellValue === 'number' || !isNaN(cellValue)) {
-                            return !Number(cellValue) ? '否' : '是';
+                            return !Number(cellValue) ? falseValue : trueValue;
                         }
-                        return !cellValue ? '否' : '是';
+                        return !cellValue ? falseValue : trueValue;
                     };
                 }
                 return this.$createElement('el-table-column', { props, scopedSlots });
