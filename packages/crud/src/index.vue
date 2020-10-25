@@ -95,7 +95,7 @@
                     // 设置list数据
                     this.rows = rows;
                     await this.$nextTick();
-                    this.$emit('quired', { total, rows });
+                    this.$emit('queried', { total, rows });
                 }
                 catch (e) {
                     e && console.error(e);
