@@ -171,7 +171,7 @@ export const exportExcel = async (vm, fileName, rows) => {
         // 宽度
         sheet.column(i + 1).width((c.width || c.minWidth || 200) / 4);
         // 高度
-        sheet.column(i + 1).style({ horizontalAlignment: getColAlign(c) });
+        sheet.column(i + 1).style({ horizontalAlignment: getColAlign(c), wrapText: true });
     });
 
     // 数据写入
