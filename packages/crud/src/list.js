@@ -52,6 +52,9 @@ export default {
         setRowChecked(checked) {
             this.rowChecked = checked;
             this.$emit('checked-change', checked);
+        },
+        getRows() {
+            return this.rows;
         }
     }
 };
