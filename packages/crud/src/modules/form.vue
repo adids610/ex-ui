@@ -151,6 +151,18 @@
                 finally {
                     this.submiting = false
                 }
+            },
+            validate(...args) {
+                return this.$refs.form.validate(...args);
+            },
+            validateField(...args) {
+                return this.$refs.form.validateField(...args);
+            },
+            resetFields(...args) {
+                return this.$refs.form.resetFields(...args);
+            },
+            clearValidate(...args) {
+                return this.$refs.form.clearValidate(...args);
             }
         },
         beforeMount() {
