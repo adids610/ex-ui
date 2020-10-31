@@ -2,7 +2,7 @@
     <component :is="cmp.type" :direction="cmp.direction" :visible.sync="popupVisible"
                :title="title" append-to-body :show-close="!submiting"
                :close-on-click-modal="false" :close-on-press-escape="false" custom-class="ex-crud-form-popup"
-               v-bind="$attrs">
+               v-bind="$attrs" v-on="$listeners">
 
         <el-form class="ex-crud-form" :label-width="labelWidth" :label-position="labelPosition"
                  :label-suffix="labelSuffix" :rules="rules" :model="model" ref="form">
