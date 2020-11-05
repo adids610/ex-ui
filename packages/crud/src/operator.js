@@ -175,12 +175,12 @@ export default {
         },
         /**
          * 单击删除按钮
-         * @param {Object} row 指定删除的数据
+         * @param {Object | Array} row 指定删除的数据
          */
         async del(row = null) {
             let checked = [];
             if (row) {
-                checked = [row];
+                checked = Array.isArray(row) ? row : [row];
             }
             else {
                 // 选中数据 优先级 复选 > 单选
