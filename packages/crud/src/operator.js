@@ -241,7 +241,10 @@ export default {
             else {
                 checked.forEach((c) => {
                     const index = this.rows.indexOf(c);
-                    index > -1 && this.rows.splice(index, 1);
+                    if (index > -1) {
+                        this.rows.splice(index, 1);
+                        this.total -= 1;
+                    }
                 });
                 // 本页被全部删除，退回上一页
                 if (this.rows.length === 0) {
