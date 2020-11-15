@@ -169,7 +169,7 @@ export const exportExcel = async (vm, fileName, rows) => {
     // 列设置
     cols.forEach((c, i) => {
         // 宽度
-        sheet.column(i + 1).width((c.width || c.minWidth || 200) / 4);
+        sheet.column(i + 1).width((c.realWidth || c.width || c.minWidth || 200) / 8);
         // 高度
         sheet.column(i + 1).style({ horizontalAlignment: getColAlign(c), wrapText: true });
     });
